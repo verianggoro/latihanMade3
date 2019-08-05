@@ -11,4 +11,5 @@
     <string name="title_tv">Tv Shows</string>
     <string name="change_language">Change Language</string>
     <string name="language_api">es-US</string>
+    <string name="vote_avg">Vote Average: &#160;</string>
 </resources>

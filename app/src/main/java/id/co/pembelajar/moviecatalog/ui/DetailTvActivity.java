@@ -8,13 +8,15 @@ import com.bumptech.glide.Glide;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import id.co.pembelajar.moviecatalog.R;
-import id.co.pembelajar.moviecatalog.model.TvShowsModel;
+import id.co.pembelajar.moviecatalog.model.TvShowsModels;
 
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DetailTvActivity extends AppCompatActivity {
     public static final String PARCELABLE = "info_tv";
+    private static final String URL_POSTER = "https://image.tmdb.org/t/p/w500/";
+    private static final String URL_BAKCDROP = "https://image.tmdb.org/t/p/w780/";
     private TextView titleMovieTxt, releaseTxt, genresTxt, descripTxt, statusTxt;
     private ImageView imgView, imgHeadTv;
 
@@ -36,18 +38,18 @@ public class DetailTvActivity extends AppCompatActivity {
     }
 
     private void showingData(){
-        TvShowsModel model = getIntent().getParcelableExtra(PARCELABLE);
+        TvShowsModels.Result model = getIntent().getParcelableExtra(PARCELABLE);
         Resources res = getResources();
-        titleMovieTxt.setText(model.getTitleTvShows());
-        releaseTxt.setText(res.getString(R.string.release_date)+model.getDateReleseTvShows());
-        genresTxt.setText(model.getGenreTvShows());
-        descripTxt.setText(model.getDescripTvShow());
-        statusTxt.setText(model.getStatusTvShows());
+        titleMovieTxt.setText(model.getTitle());
+        releaseTxt.setText(res.getString(R.string.release_date)+model.getDateRelease());
+        genresTxt.setText(String.valueOf(model.getPopularity()));
+        descripTxt.setText(model.getOverview());
+        statusTxt.setText(String.valueOf(model.getVoteAvg()));
         Glide.with(this)
-                .load(model.getIcTvShows())
+                .load(URL_POSTER+ model.getPosterPath())
                 .into(imgView);
         Glide.with(this)
-                .load(model.getBdTvShows())
+                .load(URL_BAKCDROP+ model.getBackdropPath())
                 .into(imgHeadTv);
     }
 }

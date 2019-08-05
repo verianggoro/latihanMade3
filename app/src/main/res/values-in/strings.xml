@@ -12,4 +12,5 @@
     <string name="title_tv">Acara Tv</string>
     <string name="change_language">Ubah Bahasa</string>
     <string name="language_api">id-ID</string>
+    <string name="vote_avg">Vote Rata: &#160;</string>
 </resources>

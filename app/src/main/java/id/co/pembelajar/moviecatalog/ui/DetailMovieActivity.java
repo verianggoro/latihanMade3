@@ -9,10 +9,12 @@ import com.bumptech.glide.Glide;
 
 import androidx.appcompat.app.AppCompatActivity;
 import id.co.pembelajar.moviecatalog.R;
-import id.co.pembelajar.moviecatalog.model.MovieModel;
+import id.co.pembelajar.moviecatalog.model.MovieModels;
 
 public class DetailMovieActivity extends AppCompatActivity {
     public static final String PARCELABLE = "info_movie";
+    private static final String URL_POSTER = "https://image.tmdb.org/t/p/w500/";
+    private static final String URL_BAKCDROP = "https://image.tmdb.org/t/p/w780/";
     private TextView tiltleMovieTxt, releaseTxt, genresTxt, descripTxt, budgetTxt;
     private ImageView imgView, imgBd;
 
@@ -33,18 +35,18 @@ public class DetailMovieActivity extends AppCompatActivity {
 
 
     private void showingData(){
-        MovieModel model = getIntent().getParcelableExtra(PARCELABLE);
+        MovieModels.Results model = getIntent().getParcelableExtra(PARCELABLE);
         Resources res = getResources();
-        tiltleMovieTxt.setText(model.getTitleMovie());
-        releaseTxt.setText(res.getString(R.string.release_date)+model.getDateRelease());
-        genresTxt.setText(model.getGenre());
-        descripTxt.setText(model.getDescrip());
-        budgetTxt.setText(res.getString(R.string.budget_film)+model.getBudget());
+        tiltleMovieTxt.setText(model.getTitle());
+        releaseTxt.setText(res.getString(R.string.release_date)+model.getReleaseDate());
+        genresTxt.setText(String.valueOf(model.getPopularity()));
+        descripTxt.setText(model.getOverview());
+        budgetTxt.setText(res.getString(R.string.vote_avg)+model.getVoteAvg());
         Glide.with(this)
-                .load(model.getIcon())
+                .load(URL_POSTER+model.getPosterPath())
                 .into(imgView);
         Glide.with(this)
-                .load(model.getBd_movie())
+                .load(URL_BAKCDROP+model.getBackdropPath())
                 .into(imgBd);
     }
 

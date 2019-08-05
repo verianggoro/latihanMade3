@@ -9,13 +9,11 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import id.co.pembelajar.moviecatalog.R;
-import id.co.pembelajar.moviecatalog.model.TvShowsModel;
 import id.co.pembelajar.moviecatalog.model.TvShowsModels;
 
 public class TvShowsAdapter extends RecyclerView.Adapter<TvShowsAdapter.TvShowsViewHolder> {
