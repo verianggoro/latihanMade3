@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Katalog Film</string>
+    <string name="unknown">Tidak Diketahui</string>
+    <string name="title_movies">Judul Film</string>
+    <string name="release_date">Tanggal Rilis: &#160;</string>
+    <string name="budget_film">Anggaran: &#160;</string>
+    <string name="genres">Genre</string>
+    <string name="action_settings">Pengaturan</string>
+    <string name="title_activity_detail_tv">DetailTvActivity</string>
+    <string name="title_movie">Film</string>
+    <string name="title_tv">Acara Tv</string>
+    <string name="change_language">Ubah Bahasa</string>
+    <string name="language_api">id-ID</string>
+</resources>
